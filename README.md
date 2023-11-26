@@ -24,14 +24,32 @@ print(even_values)
 #### Написать программу, которая считывает список слов и находит слова, содержащие более трех гласных букв.
 
 ```
+with open('words.txt', 'r') as f:
+    words = f.read().split()
 
+vowels = 'aeiouyAEIOUY'
+
+for word in words:
+    count = 0
+    for letter in word:
+        if letter in vowels:
+            count += 1
+    if count > 3:
+        print(word)
 ```
 
 ### 3.
 #### Написать программу, которая находит второй по величине элемент в списке.
 
 ```
+def second_largest(numbers):
+    numbers.sort()
+    if len(numbers) < 2:
+        return None
+    return numbers[-2]
 
+numbers = [5, 3, 1, 8, 6, 4, 7]
+print(second_largest(numbers))
 ```
 
 ### 4.
