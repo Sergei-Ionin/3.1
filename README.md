@@ -56,18 +56,42 @@ print(second_largest(numbers))
 #### Написать программу, которая удаляет из списка все дубликаты.
 
 ```
+numbers = [1, 2, 3, 4, 5, 5, 6, 6, 7, 7, "a", "b", "c", "d", "a", "b", "c", "d", "a", 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'ddd', 'eee']
 
+unique_numbers = []
+for number in numbers:
+    if number not in unique_numbers:
+        unique_numbers.append(number)
+
+print(unique_numbers)
 ```
 
 ### 5.
 #### Написать программу, которая считывает данные из CSV-файла и создает словарь, где ключами являются значения в столбце «Name», а значениями — соответствующие им словари с информацией о поле, возрасте и зарплате.
  ```
- 
+ import csv
+
+data = {}
+with open('output.csv', 'r') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+            name = row['Name']
+            data[name] = {
+                    'gender': row['Gender'],
+                        'age': int(row['Age']),
+                            'salary': float(row['Salary'])
+}
+
+print(data)
  ```
 
  ### 6.
  #### Написать программу, которая запрашивает у пользователя строку и выводит на экран все ее подстроки длиной не менее трех символов.
 
  ```
- 
+ user_input = input("Введите строку: ")
+
+for i in range(len(user_input)-2):
+    if (len(user_input[i:i+3]) >= 3):
+        print(user_input[i:i+3])
  ```
